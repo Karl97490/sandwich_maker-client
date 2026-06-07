@@ -1,30 +1,42 @@
-export const Form = ({ onChange, stateForm, onSubmit }) => {
+import "../styles/Form.css";
+
+export const Form = ({ onChange, stateForm, onSubmit, isLoading }) => {
   return (
-    <>
-      <div>This is Form component</div>
-      <div className="form-container">
-        <form onSubmit={onSubmit}>
-          <label>
-            Name
-            <input
-              type="text"
-              name="name"
-              value={stateForm.name}
-              placeholder="Name"
-              onChange={onChange}
-            />
-          </label>
-          <label>
-            Nickname
-            <input
-              type="text"
-              name="nickname"
-              value={stateForm.nickname}
-              placeholder="Nickname"
-              onChange={onChange}
-            />
-          </label>
-          <span>Location</span>
+    <div className="form-container">
+      <form onSubmit={onSubmit} className="sandwich-form">
+        <h3>Create Sandwich</h3>
+        <label>
+          Name
+          <input
+            type="text"
+            name="name"
+            value={stateForm.name}
+            onChange={onChange}
+          />
+        </label>
+
+        <label>
+          Nickname
+          <input
+            type="text"
+            name="nickname"
+            value={stateForm.nickname}
+            onChange={onChange}
+          />
+        </label>
+
+        <label>
+          Image URL
+          <input
+            type="url"
+            name="image"
+            value={stateForm.image}
+            onChange={onChange}
+          />
+        </label>
+        <fieldset>
+          <legend>Location</legend>
+
           <label>
             Country
             <input
@@ -32,10 +44,10 @@ export const Form = ({ onChange, stateForm, onSubmit }) => {
               name="country"
               data-section="location"
               value={stateForm.location.country}
-              placeholder="Country"
               onChange={onChange}
             />
           </label>
+
           <label>
             City
             <input
@@ -43,11 +55,14 @@ export const Form = ({ onChange, stateForm, onSubmit }) => {
               name="city"
               data-section="location"
               value={stateForm.location.city}
-              placeholder="City"
               onChange={onChange}
             />
           </label>
-          <span>Ingredients</span>
+        </fieldset>
+
+        <fieldset>
+          <legend>Ingredients</legend>
+
           <label>
             Lettuce
             <select
@@ -60,6 +75,7 @@ export const Form = ({ onChange, stateForm, onSubmit }) => {
               <option value="endive">Endive</option>
             </select>
           </label>
+
           <label>
             Cheese
             <select
@@ -72,6 +88,7 @@ export const Form = ({ onChange, stateForm, onSubmit }) => {
               <option value="emmental">Emmental</option>
             </select>
           </label>
+
           <label>
             Meat
             <select name="meat" data-section="ingredients" onChange={onChange}>
@@ -80,8 +97,9 @@ export const Form = ({ onChange, stateForm, onSubmit }) => {
               <option value="chicken">Chicken</option>
             </select>
           </label>
+
           <label>
-            Vegies
+            Veggies
             <select
               name="vegies"
               data-section="ingredients"
@@ -92,36 +110,34 @@ export const Form = ({ onChange, stateForm, onSubmit }) => {
               <option value="carrot">Carrot</option>
             </select>
           </label>
+
           <label>
             Sauce
             <select name="sauce" data-section="ingredients" onChange={onChange}>
               <option value="">None</option>
               <option value="ketchup">Ketchup</option>
-              <option value="mayonese">Mayonese</option>
+              <option value="mayonnaise">Mayonnaise</option>
             </select>
           </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Description</legend>
+
           <label>
-            Image
-            <input
-              type="url"
-              name="image"
-              value={stateForm.image}
-              placeholder="Image"
-              onChange={onChange}
-            />
-          </label>
-          <label>
-            Description
             <textarea
-              type="text"
-              value={stateForm.description}
               name="description"
+              rows="4"
+              value={stateForm.description}
               onChange={onChange}
             />
           </label>
-          <button type="submit">New sandwich</button>
-        </form>
-      </div>
-    </>
+        </fieldset>
+
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? <span>Loading...</span> : <span>Create Sandwich</span>}
+        </button>
+      </form>
+    </div>
   );
 };

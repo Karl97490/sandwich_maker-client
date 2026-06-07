@@ -24,6 +24,8 @@ export const AddSandwich = () => {
   };
 
   const [stateForm, setStateForm] = useState(initialStateForm);
+  const [isLoading, setIsLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -48,6 +50,7 @@ export const AddSandwich = () => {
   };
 
   const handleSubmit = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
     const body = stateForm;
     try {
@@ -56,6 +59,7 @@ export const AddSandwich = () => {
         body,
       );
       navigate("/sandwiches");
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
       navigate("/error");
@@ -69,6 +73,7 @@ export const AddSandwich = () => {
         onChange={handleChange}
         stateForm={stateForm}
         onSubmit={handleSubmit}
+        isLoading={isLoading}
       />
     </div>
   );
