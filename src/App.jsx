@@ -6,8 +6,8 @@ import { SandwichesList } from "./pages/SandwichesList";
 import { AddSandwich } from "./pages/AddSandwich";
 import { BreadsList } from "./pages/BreadsList";
 import { Footer } from "./components/Footer";
+import { ErrorPage } from "./pages/ErrorPage";
 import "./App.css";
-
 
 function App() {
   return (
@@ -17,16 +17,22 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/sandwiches" element={<SandwichesList />}></Route>
-          <Route path="/sandwiches/details/:sandwichId" element={undefined}></Route>
+          <Route
+            path="/sandwiches/details/:sandwichId"
+            element={undefined}
+          ></Route>
           <Route path="/sandwiches/add" element={<AddSandwich />}></Route>
-          <Route path="/sandwiches/edit/:sandwichId" element={undefined}></Route>
+          <Route
+            path="/sandwiches/edit/:sandwichId"
+            element={undefined}
+          ></Route>
 
           <Route path="/breads" element={<BreadsList />}></Route>
           <Route path="/breads/details/:breadId" element={undefined}></Route>
 
           <Route path="/About" element={undefined}></Route>
 
-          <Route path="/error" element={undefined}></Route>
+          <Route path="/error" element={<ErrorPage />}></Route>
           <Route path="*" element={undefined}></Route>
         </Routes>
       </div>
