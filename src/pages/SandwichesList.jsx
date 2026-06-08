@@ -6,6 +6,7 @@ import axios from "axios";
 
 export const SandwichesList = () => {
   const [sandwiches, setSandwiches] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getData();
@@ -16,12 +17,17 @@ export const SandwichesList = () => {
       const response = await axios.get(
         `${import.meta.env.VITE_SERVER_URL}/sandwiches`,
       );
+      setIsLoading(false);
       // console.log(response.data)
       setSandwiches(response.data);
     } catch (error) {
       console.log(error);
     }
   };
+
+  if (isLoading) {
+    return <h2>Sorry the page is loading...</h2>;
+  }
 
   return (
     <div className="sandwiches-page">

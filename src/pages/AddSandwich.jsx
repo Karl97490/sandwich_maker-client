@@ -6,21 +6,21 @@ import axios from "axios";
 
 export const AddSandwich = () => {
   const initialStateForm = {
-    name: "",
-    nickname: "",
+    name: null,
+    nickname: null,
     location: {
-      country: "",
-      city: "",
+      country: null,
+      city: null,
     },
     ingredients: {
-      lettuce: "",
-      cheese: "",
-      meat: "",
-      vegies: "",
-      sauce: "",
+      lettuce: null,
+      cheese: null,
+      meat: null,
+      vegies: null,
+      sauce: null,
     },
-    image: "",
-    description: "",
+    image: null,
+    description: null,
   };
 
   const [stateForm, setStateForm] = useState(initialStateForm);

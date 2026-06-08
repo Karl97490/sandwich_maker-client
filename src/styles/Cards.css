@@ -64,17 +64,28 @@
 
             #ingredients {
                 /* background-color: rgba(0, 0, 255, 0.229); */
-                text-align: left;
                 border-left: 2px solid;
                 grid-column: span 4;
+                display: flex;
+                justify-content: space-evenly;
 
                 li {
-                    border-bottom: 1px solid;
-                    padding: 0.2rem 0 0.2rem 0.3rem;
+                    background-color: rgba(208, 208, 208, 0.079);
+                    padding: 0.1rem;
+                    /* outline: 1px solid; */
+                    font-size: 1.3em;
+                    display: flex;
+                    flex-direction: column;
+                    width: 40px;
 
-                    &:last-child {
-                        border-bottom: none;
+                    span {
+                        font-size: 11px;
+                        font-weight: 600;
                     }
+
+                    /* &:last-child {
+                        border-bottom: none;
+                    } */
                 }
             }
         }

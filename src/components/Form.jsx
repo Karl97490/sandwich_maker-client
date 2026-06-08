@@ -10,7 +10,7 @@ export const Form = ({ onChange, stateForm, onSubmit, isLoading }) => {
           <input
             type="text"
             name="name"
-            value={stateForm.name}
+            value={stateForm.name || ""}
             onChange={onChange}
           />
         </label>
@@ -20,7 +20,7 @@ export const Form = ({ onChange, stateForm, onSubmit, isLoading }) => {
           <input
             type="text"
             name="nickname"
-            value={stateForm.nickname}
+            value={stateForm.nickname || ""}
             onChange={onChange}
           />
         </label>
@@ -30,7 +30,7 @@ export const Form = ({ onChange, stateForm, onSubmit, isLoading }) => {
           <input
             type="url"
             name="image"
-            value={stateForm.image}
+            value={stateForm.image || ""}
             onChange={onChange}
           />
         </label>
@@ -43,7 +43,7 @@ export const Form = ({ onChange, stateForm, onSubmit, isLoading }) => {
               type="text"
               name="country"
               data-section="location"
-              value={stateForm.location.country}
+              value={stateForm.location.country || ""}
               onChange={onChange}
             />
           </label>
@@ -54,7 +54,7 @@ export const Form = ({ onChange, stateForm, onSubmit, isLoading }) => {
               type="text"
               name="city"
               data-section="location"
-              value={stateForm.location.city}
+              value={stateForm.location.city || ""}
               onChange={onChange}
             />
           </label>
@@ -68,6 +68,7 @@ export const Form = ({ onChange, stateForm, onSubmit, isLoading }) => {
             <select
               name="lettuce"
               data-section="ingredients"
+              value={stateForm.ingredients.lettuce || ""}
               onChange={onChange}
             >
               <option value="">None</option>
@@ -81,6 +82,7 @@ export const Form = ({ onChange, stateForm, onSubmit, isLoading }) => {
             <select
               name="cheese"
               data-section="ingredients"
+              value={stateForm.ingredients.cheese || ""}
               onChange={onChange}
             >
               <option value="">None</option>
@@ -91,10 +93,16 @@ export const Form = ({ onChange, stateForm, onSubmit, isLoading }) => {
 
           <label>
             Meat
-            <select name="meat" data-section="ingredients" onChange={onChange}>
+            <select
+              name="meat"
+              data-section="ingredients"
+              value={stateForm.ingredients.meat || ""}
+              onChange={onChange}
+            >
               <option value="">None</option>
               <option value="beef">Beef</option>
               <option value="chicken">Chicken</option>
+              <option value="ham">Ham</option>
             </select>
           </label>
 
@@ -103,6 +111,7 @@ export const Form = ({ onChange, stateForm, onSubmit, isLoading }) => {
             <select
               name="vegies"
               data-section="ingredients"
+              value={stateForm.ingredients.vegies || ""}
               onChange={onChange}
             >
               <option value="">None</option>
@@ -113,10 +122,16 @@ export const Form = ({ onChange, stateForm, onSubmit, isLoading }) => {
 
           <label>
             Sauce
-            <select name="sauce" data-section="ingredients" onChange={onChange}>
+            <select
+              name="sauce"
+              data-section="ingredients"
+              value={stateForm.ingredients.sauce || ""}
+              onChange={onChange}
+            >
               <option value="">None</option>
               <option value="ketchup">Ketchup</option>
               <option value="mayonnaise">Mayonnaise</option>
+              <option value="butter">Butter</option>
             </select>
           </label>
         </fieldset>
@@ -128,7 +143,7 @@ export const Form = ({ onChange, stateForm, onSubmit, isLoading }) => {
             <textarea
               name="description"
               rows="4"
-              value={stateForm.description}
+              value={stateForm.description || ""}
               onChange={onChange}
             />
           </label>

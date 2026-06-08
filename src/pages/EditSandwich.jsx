@@ -5,31 +5,11 @@ import { Form } from "../components/Form";
 import "../styles/EditSandwich.css";
 
 export const EditSandwich = () => {
-  const [sandwich, setSandwich] = useState(null);
-  // console.log(sandwich);
+  const [stateForm, setStateForm] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
   const { sandwichId } = useParams();
   const navigate = useNavigate();
-
-  const initialStateForm = {
-    name: "",
-    nickname: "",
-    location: {
-      country: "",
-      city: "",
-    },
-    ingredients: {
-      lettuce: "",
-      cheese: "",
-      meat: "",
-      vegies: "",
-      sauce: "",
-    },
-    image: "",
-    description: "",
-  };
-
-  const [stateForm, setStateForm] = useState(initialStateForm);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     getData();
@@ -41,7 +21,7 @@ export const EditSandwich = () => {
         `${import.meta.env.VITE_SERVER_URL}/sandwiches/${sandwichId}`,
       );
       // console.log(response.data);
-      setSandwich(response.data);
+      setIsLoading(false);
       setStateForm(response.data);
     } catch (error) {
       console.log(error);
@@ -69,7 +49,6 @@ export const EditSandwich = () => {
   };
 
   const handleSubmit = async (e) => {
-    setIsLoading(true);
     e.preventDefault();
     const body = stateForm;
     try {
@@ -77,13 +56,18 @@ export const EditSandwich = () => {
         `${import.meta.env.VITE_SERVER_URL}/sandwiches/${sandwichId}`,
         body,
       );
-      navigate("/sandwiches");
       setIsLoading(false);
+      console.log(response);
+      navigate("/sandwiches");
     } catch (error) {
       console.log(error);
       navigate("/error");
     }
   };
+
+  if (isLoading) {
+    return <h2>We're loading the page...</h2>;
+  }
 
   return (
     <div className="edit-page">
