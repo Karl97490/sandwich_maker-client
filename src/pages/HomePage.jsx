@@ -6,8 +6,10 @@ export const HomePage = () => {
     <div className="home-page">
       <h1>Discover the world of sandwiches..!</h1>
       {/* <button className="discover">Discover</button> */}
-      <button class="btn btn-primary">Discover</button>
-      <Test></Test>
+      <button class="btn btn-accent text-lg border-neutral border-2">
+        Discover
+      </button>
+      {/* <Test></Test> */}
     </div>
   );
 };

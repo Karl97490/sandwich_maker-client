@@ -11,11 +11,12 @@ import { BreadDetails } from "./pages/BreadDetails";
 import { Footer } from "./components/Footer";
 import { ErrorPage } from "./pages/ErrorPage";
 
+import { TestUI } from "./pages/TestUI";
 import "./App.css";
 
 function App() {
   return (
-    <div className="app-container">
+    <div className="app-container" data-theme="acid">
       <Navbar />
       <div className="page">
         <Routes>
@@ -41,6 +42,8 @@ function App() {
 
           <Route path="/error" element={<ErrorPage />}></Route>
           <Route path="*" element={undefined}></Route>
+
+          <Route path="/testUI" element={<TestUI />}></Route>
         </Routes>
       </div>
       <Footer />
