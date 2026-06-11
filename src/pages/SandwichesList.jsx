@@ -1,4 +1,4 @@
-import "../styles/SandwichesList.css";
+// import "../styles/SandwichesList.css";
 import "../styles/FormsAction.css";
 
 import { useState, useEffect } from "react";
@@ -95,7 +95,7 @@ export const SandwichesList = () => {
   }
 
   return (
-    <div className="sandwiches-page">
+    <div className="w-full pb-10">
       <h2>This is SandwichesList component...</h2>
       <div className="inputs-container">
         <button type="reset" className="reset-btn" onClick={handleReset}>
@@ -105,10 +105,11 @@ export const SandwichesList = () => {
         <Sort query={querySort} onChange={handleChange} />
         <Filter query={queryFilter} onChange={handleChange} />
       </div>
-      <section className="cards-container">
-        <NavLink to="add">
+
+      <section className="mx-5 rounded-4xl border-4 grid grid-cols-[repeat(auto-fit,24rem)] gap-y-4 gap-x-10 justify-center py-10 bg-base-100">
+        {/* <NavLink to="add">
           <button id="add-btn">Create your own</button>
-        </NavLink>
+        </NavLink> */}
         {sandwiches.map((sandwich) => {
           return (
             <Cards key={sandwich.id} obj={sandwich} onDelete={handleDelete} />

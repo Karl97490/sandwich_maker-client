@@ -3,86 +3,52 @@ import { NavLink } from "react-router-dom";
 
 export const Cards = ({ obj, onDelete }) => {
   return (
-    <div className="card">
+    <div>
       <NavLink to={`details/${obj.id}`}>
-        <div className="logo-container">
-          <img src={obj.image} alt="Sandwich image" name="logo" />
-        </div>
-        <div className="infos">
-          <div className="header">
-            <h3 id="title">Name: {obj.name}</h3>
-            {obj.location && (
-              <span>
-                From: {obj.location.country}, {obj.location.city}
-              </span>
-            )}
-            {/* {obj.type && <span> Type: {obj.type}</span>} */}
+        <div className="card bg-base-100 w-96 shadow-sm">
+          <figure className="bg-pink-100">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2IhYauSkWSHOi8sApOhS4324lrXdo10Nh0g&s"
+              alt="Sandwich pixel-art"
+            />
+          </figure>
+          <div className="card-body gap-4">
+            <h2 className="card-title text-left justify-between">
+              {obj.name}
+              <div className="badge badge-secondary">New</div>
+            </h2>
+            <div className="flex flex-col gap-1">
+              <h3 className="text-left font-semibold ">Description</h3>
+              <p className="text-left line-clamp-2">{obj.description}</p>
+            </div>
+            <div className="grid grid-cols-[1fr_2.5fr] gap-2 place-items-center py-1">
+              <div className="badge badge-neutral font-medium text-neutral-content">
+                Ingredients
+              </div>
+              <div className="flex items-center justify-evenly w-full">
+                <div className="badge bg-green-100 border-green-400">
+                  {obj.ingredients.lettuce && "🥬"}
+                </div>
+                <div className="badge bg-red-100 border-red-400">
+                  {obj.ingredients.meat && "🥩"}
+                </div>
+                <div className="badge bg-yellow-100 border-yellow-400">
+                  {obj.ingredients.cheese && "🧀"}
+                </div>
+                <div className="badge bg-orange-100 border-orange-400">
+                  {obj.ingredients.vegies && "🥕"}
+                </div>
+                <div className="badge bg-gray-100 border-black">
+                  {obj.ingredients.sauce && "🫙"}
+                </div>
+              </div>
+            </div>
+            {/* <div className="card-actions justify-end w-full bg-base-200">
+            <button className="btn">Delete</button>
+          </div> */}
           </div>
-          <div className="details">
-            {obj.origin ? (
-              <>
-                <span id="title">
-                  <strong>Origin: </strong>
-                  {obj.origin}
-                </span>
-                <ul id="type">
-                  <li>
-                    <strong>Type:</strong> {obj.type}
-                  </li>
-                </ul>
-              </>
-            ) : (
-              <>
-                <span id="title">
-                  <strong>Ingredients</strong>
-                </span>
-                <ul id="ingredients">
-                  {/* <li><strong>Bread:</strong></li> */}
-                  {obj.ingredients.lettuce && (
-                    <li>
-                      🥬<span>Lettuce</span>
-                    </li>
-                  )}
-                  {obj.ingredients.cheese && (
-                    <li>
-                      🧀<span>Cheese</span>
-                    </li>
-                  )}
-                  {obj.ingredients.meat && (
-                    <li>
-                      🥩<span>Meat</span>
-                    </li>
-                  )}
-                  {obj.ingredients.vegies && (
-                    <li>
-                      🫛<span>Vegies</span>
-                    </li>
-                  )}
-                  {obj.ingredients.sauce && (
-                    <li>
-                      🫙<span>Sauce</span>
-                    </li>
-                  )}
-                </ul>
-              </>
-            )}
-          </div>
-          {/* <div className="description">
-                    <span>Description:</span>
-                    <p>{obj.description}</p>
-                </div> */}
         </div>
       </NavLink>
-      {obj.id.length > 2 && (
-        <div className="btn-container">
-          <NavLink to={`edit/${obj.id}`}>
-            <button id="edit-btn">EDIT</button>
-          </NavLink>
-          <button id="edit-btn" onClick={() => onDelete(obj.id)}>
-            DELETE
-          </button>
-        </div>
-      )}
     </div>
   );
 };
