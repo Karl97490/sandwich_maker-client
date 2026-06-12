@@ -14,7 +14,7 @@ import { NotFoundPage } from "./pages/NotFoundPage";
 import { ErrorPage } from "./pages/ErrorPage";
 
 import { LoadingPage } from "./pages/LoadingPage";
-// import { TestUI } from "./pages/TestUI";
+
 import "./App.css";
 
 function App() {
@@ -46,7 +46,6 @@ function App() {
           <Route path="/error" element={<ErrorPage />}></Route>
           <Route path="*" element={<NotFoundPage />}></Route>
 
-          {/* <Route path="/testUI" element={<TestUI />}></Route> */}
           <Route path="/loading" element={<LoadingPage />}></Route>
         </Routes>
       </div>
