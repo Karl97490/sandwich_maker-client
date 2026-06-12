@@ -71,7 +71,6 @@ export const EditSandwich = () => {
 
   return (
     <div className="edit-page">
-      <h1>This is EditSandwich component...</h1>;
       <Form
         onChange={handleChange}
         stateForm={stateForm}

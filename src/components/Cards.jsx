@@ -3,86 +3,78 @@ import { NavLink } from "react-router-dom";
 
 export const Cards = ({ obj, onDelete }) => {
   return (
-    <div className="card">
+    <div className="card bg-base-100 w-96 shadow-sm relative overflow-hidden">
       <NavLink to={`details/${obj.id}`}>
-        <div className="logo-container">
-          <img src={obj.image} alt="Sandwich image" name="logo" />
-        </div>
-        <div className="infos">
-          <div className="header">
-            <h3 id="title">Name: {obj.name}</h3>
-            {obj.location && (
-              <span>
-                From: {obj.location.country}, {obj.location.city}
-              </span>
-            )}
-            {/* {obj.type && <span> Type: {obj.type}</span>} */}
-          </div>
-          <div className="details">
-            {obj.origin ? (
-              <>
-                <span id="title">
-                  <strong>Origin: </strong>
-                  {obj.origin}
-                </span>
-                <ul id="type">
-                  <li>
-                    <strong>Type:</strong> {obj.type}
-                  </li>
-                </ul>
-              </>
-            ) : (
-              <>
-                <span id="title">
-                  <strong>Ingredients</strong>
-                </span>
-                <ul id="ingredients">
-                  {/* <li><strong>Bread:</strong></li> */}
-                  {obj.ingredients.lettuce && (
-                    <li>
-                      🥬<span>Lettuce</span>
-                    </li>
-                  )}
-                  {obj.ingredients.cheese && (
-                    <li>
-                      🧀<span>Cheese</span>
-                    </li>
-                  )}
-                  {obj.ingredients.meat && (
-                    <li>
-                      🥩<span>Meat</span>
-                    </li>
-                  )}
-                  {obj.ingredients.vegies && (
-                    <li>
-                      🫛<span>Vegies</span>
-                    </li>
-                  )}
-                  {obj.ingredients.sauce && (
-                    <li>
-                      🫙<span>Sauce</span>
-                    </li>
-                  )}
-                </ul>
-              </>
-            )}
-          </div>
-          {/* <div className="description">
-                    <span>Description:</span>
-                    <p>{obj.description}</p>
-                </div> */}
-        </div>
+        <figure className="h-52 ">
+          <img
+            src={obj.image}
+            // {
+            //   obj.breadId
+            //     ? "https://static.vecteezy.com/ti/vecteur-libre/p1/50084123-pixel-art-burger-jeu-atout-conception-vectoriel.jpg"
+            //     : "https://i.redd.it/6p8s2ry7jgx71.jpg"
+            // }
+            alt="Sandwich pixel-art"
+            className="w-full h-full object-cover"
+          />
+        </figure>
       </NavLink>
-      {obj.id.length > 2 && (
-        <div className="btn-container">
-          <NavLink to={`edit/${obj.id}`}>
-            <button id="edit-btn">EDIT</button>
-          </NavLink>
-          <button id="edit-btn" onClick={() => onDelete(obj.id)}>
-            DELETE
-          </button>
+      <div className="card-body gap-3">
+        <div className="flex justify-between items-center gap-1">
+          <h2 className="card-title text-left line-clamp-1 min-h-[1.8rem]">
+            {obj.name}
+          </h2>
+          {obj.id.length > 2 ? (
+            <div className="badge badge-secondary">New</div>
+          ) : (
+            <div className="badge badge-warning">
+              {obj.breadId ? "Classic" : "Original"}
+            </div>
+          )}
         </div>
-      )}
+        <div className="flex flex-col gap-1">
+          <h3 className="text-left font-semibold ">Description</h3>
+          <p className="text-left line-clamp-2 min-h-[2rem]">
+            {obj.description}
+          </p>
+        </div>
+        <div className="grid grid-cols-[1fr_2.5fr] gap-2 place-items-center py-1">
+          <div className="badge badge-neutral font-medium text-neutral-content">
+            Ingredients
+          </div>
+          <div className="flex items-center justify-evenly w-full">
+            <div className="badge bg-green-100 border-green-400">
+              {obj.ingredients.lettuce && "🥬"}
+            </div>
+            <div className="badge bg-red-100 border-red-400">
+              {obj.ingredients.meat && "🥩"}
+            </div>
+            <div className="badge bg-yellow-100 border-yellow-400">
+              {obj.ingredients.cheese && "🧀"}
+            </div>
+            <div className="badge bg-orange-100 border-orange-400">
+              {obj.ingredients.vegies && "🥕"}
+            </div>
+            <div className="badge bg-gray-100 border-black">
+              {obj.ingredients.sauce && "🫙"}
+            </div>
+          </div>
+        </div>
+        {obj.id.length > 2 && (
+          <div className="card-actions justify-between absolute top-0 right-0 left-0 p-1">
+            <NavLink to={`edit/${obj.id}`}>
+              <button className="w-9 h-9 btn btn-info btn-soft btn-circle rounded-full">
+                ✎
+              </button>
+            </NavLink>
+            <button
+              className="w-9 h-9 btn btn-error btn-soft btn-circle rounded-full text-xs"
+              onClick={() => onDelete(obj.id)}
+            >
+              ✘
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
