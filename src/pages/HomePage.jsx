@@ -1,6 +1,4 @@
 import "../styles/HomePage.css";
-import { Test } from "../../Test";
-
 export const HomePage = () => {
   return (
     <div className=" w-full">
@@ -26,7 +24,6 @@ export const HomePage = () => {
           </div>
         </div>
       </div>
-      {/* <Test></Test> */}
     </div>
   );
 };
