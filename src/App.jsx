@@ -8,10 +8,13 @@ import { AddSandwich } from "./pages/AddSandwich";
 import { EditSandwich } from "./pages/EditSandwich";
 import { BreadsList } from "./pages/BreadsList";
 import { BreadDetails } from "./pages/BreadDetails";
+import { AbouPage } from "./pages/AboutPage";
 import { Footer } from "./components/Footer";
+import { NotFoundPage } from "./pages/NotFoundPage";
 import { ErrorPage } from "./pages/ErrorPage";
 
-import { TestUI } from "./pages/TestUI";
+import { LoadingPage } from "./pages/LoadingPage";
+// import { TestUI } from "./pages/TestUI";
 import "./App.css";
 
 function App() {
@@ -38,12 +41,13 @@ function App() {
             element={<BreadDetails />}
           ></Route>
 
-          <Route path="/About" element={undefined}></Route>
+          <Route path="/About" element={<AbouPage />}></Route>
 
           <Route path="/error" element={<ErrorPage />}></Route>
-          <Route path="*" element={undefined}></Route>
+          <Route path="*" element={<NotFoundPage />}></Route>
 
           {/* <Route path="/testUI" element={<TestUI />}></Route> */}
+          <Route path="/loading" element={<LoadingPage />}></Route>
         </Routes>
       </div>
       <Footer />

@@ -37,41 +37,50 @@ export const SandwichDetails = () => {
   }
 
   return (
-    <div className="w-full pb-10">
-      <section className="hero">
-        <div className="hero-content flex-col lg:flex-row bg-red-100 gap-5">
-          <img
-            src="https://static.vecteezy.com/ti/vecteur-libre/p1/50084123-pixel-art-burger-jeu-atout-conception-vectoriel.jpg"
-            className="max-w-xs rounded-lg shadow-xl"
-            alt={sandwich.name}
-          />
-          <div className="flex flex-col gap-3">
+    <div className="w-full py-8 px-5">
+      <section className="hero bg-red-500 p-8">
+        <div className="hero-content flex-col lg:flex-row gap-5 bg-green-100">
+          <div className="card bg-base-100 shadow-xl max-w-md">
+            <figure className="p-4">
+              <img
+                src="https://static.vecteezy.com/ti/vecteur-libre/p1/50084123-pixel-art-burger-jeu-atout-conception-vectoriel.jpg"
+                className="rounded-xl w-full object-cover"
+                alt={sandwich.name}
+              />
+            </figure>
+          </div>
+          <div className="flex flex-col gap-4 bg-blue-400 px-10 py-5">
             <div>
               <h1 className="font-bold">{sandwich.name}</h1>
               <p className="text-lg italic opacity-70 mt-1">
-                "{sandwich.nickname}"
+                {sandwich.nickname && `"${sandwich.nickname}"`}
               </p>
             </div>
-            <div className="flex flex-col">
-              <h3>Description</h3>
-              <p className="min-h-[5rem] py-5 flex items-center">
-                {sandwich.description}
-              </p>
+            <div className="card bg-base-100 shadow px-5">
+              <div className="card-body">
+                <h2 className="card-title justify-center">Description</h2>
+                <p className="text-left leading-relaxed">
+                  {sandwich.description}
+                </p>
+              </div>
             </div>
-            <div className="stats shadow">
-              <div className="stat px-4">
+            <div className="stats stats-vertical lg:stats-horizontal shadow bg-base-100 w-full py-5">
+              <div className="stat">
                 <div className="stat-title">Origin</div>
                 <div className="stat-value text-lg">
                   {sandwich.location.country}
                 </div>
                 <div className="stat-desc">{sandwich.location.city}</div>
               </div>
-
-              <div className="stat px-4">
-                <div className="stat-title">Bread</div>
-                <div className="stat-value text-lg">{sandwich.bread.type}</div>
-                <div className="stat-desc">{sandwich.bread.origin}</div>
-              </div>
+              <NavLink to={`/breads/details/${sandwich.breadId}`}>
+                <div className="stat px-4">
+                  <div className="stat-title">Bread</div>
+                  <div className="stat-value text-lg">
+                    {sandwich.bread.type}
+                  </div>
+                  <div className="stat-desc">{sandwich.bread.origin}</div>
+                </div>
+              </NavLink>
             </div>
             <section className="card bg-red-100 shadow">
               <div className="card-body">
@@ -123,8 +132,8 @@ export const SandwichDetails = () => {
 
       <div className="divider"></div>
 
-      <section className="card bg-red-100 w-[95%] m-auto shadow-md">
-        <h2 className="card-titlejustify-center">Community Rating</h2>
+      <section className="card bg-red-100 w-[95%] m-auto shadow-md py-5 px-10">
+        <h2 className="card-title justify-center">Community Rating</h2>
         <div className="card-body ">
           <div className="flex justify-center gap-10">
             <button className="btn btn-success w-30 sm:max-w-xs h-12 ">

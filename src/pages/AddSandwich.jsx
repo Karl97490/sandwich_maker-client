@@ -77,7 +77,6 @@ export const AddSandwich = () => {
 
   return (
     <div className="add-page">
-      {/* <h2>This is AddSandwich component...</h2> */}
       <Form
         onChange={handleChange}
         stateForm={stateForm}

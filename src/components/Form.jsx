@@ -220,7 +220,7 @@ export const Form = ({ onChange, stateForm, onSubmit, isLoading }) => {
               disabled={isLoading}
               className="btn btn-primary w-full sm:w-auto"
             >
-              {isLoading ? "Creating..." : "Create Sandwich"}
+              {isLoading ? <span className="loading loading-spinner text-primary-content"></span> : "Create Sandwich"}
             </button>
           </div>
         </div>

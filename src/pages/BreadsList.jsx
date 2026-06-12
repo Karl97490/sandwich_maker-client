@@ -5,6 +5,7 @@ import { Cards } from "../components/Cards";
 import { Search } from "../components/Search";
 import { Filter } from "../components/Filter";
 import { Sort } from "../components/Sort";
+import { LoadingPage } from "./LoadingPage";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -74,12 +75,15 @@ export const BreadsList = () => {
   };
 
   if (isLoading) {
-    return <h2>Sorry we are loading the page...</h2>;
+    return (
+      <h2>
+        <LoadingPage />
+      </h2>
+    );
   }
 
   return (
     <div className="w-full pb-10">
-      <h2>This is BreadsList component...</h2>
       <fieldset className="fieldset flex flex-row justify-center w-[95%] m-auto p-4">
         <button
           type="reset"

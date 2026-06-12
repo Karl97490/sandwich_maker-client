@@ -1,7 +1,11 @@
 @import "tailwindcss";
 
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark, acid, forest;
+  themes:
+    light --default,
+    dark --prefersdark,
+    acid,
+    forest;
   root: ":root";
 }
 
@@ -10,29 +14,8 @@
 }
 
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px,
-    rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui,
-    'Segoe UI',
-    Roboto,
-    sans-serif;
-  --heading: system-ui,
-    'Segoe UI',
-    Roboto,
-    sans-serif;
-  --mono: ui-monospace,
-    Consolas,
-    monospace;
+  --sans: "Poppins", sans-serif;
+  --heading: "Inter", sans-serif;
 
   font: 16px var(--sans);
   /* letter-spacing: 0.18px; */
@@ -81,13 +64,12 @@
   background-color: green;
 } */
 
-
 h1,
 h2,
 h3 {
   font-family: var(--heading);
-  /* color: var(--text-h); */
   font-weight: 600;
+  /* color: var(--text-h); */
 }
 
 /* a {
@@ -100,33 +82,15 @@ h3 {
 } */
 
 h1 {
-  font-size: 2.5rem;
-  /* margin: 20px 0; */
-
-  @media (max-width: 1024px) {
-    font-size: 1.9rem;
-    /* margin: 10px 0; */
-  }
+  font-size: 1.8rem;
 }
 
 h2 {
-  font-size: 2rem;
-  /* margin: 20px 0; */
-
-  @media (max-width: 1024px) {
-    font-size: 1.6rem;
-    /* margin: 20px 0; */
-  }
+  font-size: 1.5rem;
 }
 
 h3 {
-  font-size: 1.6rem;
-
-  /* margin: 20px 0; */
-  @media (max-width: 1024px) {
-    font-size: 1.4rem;
-    /* margin: 10px 0; */
-  }
+  font-size: 1.2rem;
 }
 
 button {
