@@ -210,6 +210,9 @@ export const SandwichDetails = () => {
             <Comments sandwichId={sandwichId} />
           </div>
         </section>
+        <Link to="/sandwiches">
+          <button className="btn btn-primary btn-outline mt-6">⬅ Back</button>
+        </Link>
       </div>
     </div>
   );

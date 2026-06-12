@@ -15,7 +15,7 @@ export const Footer = () => {
       </aside>
       <nav>
         <div className="grid grid-flow-col gap-4">
-          <Link to="">
+          <Link to="https://www.linkedin.com/in/karlpery-potonie/">
             <img src={LinkedIn} alt="Home icon" className="h-8 w-8 shrink-0" />
           </Link>
           <Link to="https://github.com/Karl97490/app-client">

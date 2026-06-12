@@ -161,6 +161,9 @@ export const BreadDetails = () => {
             </div>
           </div>
         </section>
+        <Link to="/breads">
+          <button className="btn btn-primary btn-outline mt-6">⬅ Back</button>
+        </Link>
       </div>
     </div>
   );
