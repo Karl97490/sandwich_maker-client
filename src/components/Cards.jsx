@@ -70,7 +70,7 @@ export const Cards = ({ obj, onDelete }) => {
             )}
           </div>
         </div>
-        {obj.id.length > 2 && (
+        {obj.id.length > 4 && (
           <div className="card-actions justify-between absolute top-0 right-0 left-0 p-1">
             <NavLink to={`edit/${obj.id}`}>
               <button className="w-9 h-9 btn btn-info btn-soft btn-circle rounded-full">

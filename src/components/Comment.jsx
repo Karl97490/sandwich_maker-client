@@ -73,7 +73,7 @@ export const Comment = ({ obj, getData }) => {
         <span className="opacity-70">{obj.created_date}</span>
       </div>
       <div className="indicator pr-5">
-        {obj.id.length > 2 && (
+        {obj.id.length > 4 && (
           <>
             <button
               className="indicator-item bg-error text-[8px] rounded-full h-4 w-4 mt-1"
